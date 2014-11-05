@@ -64,7 +64,7 @@ Router.map(function() {
       suggestedTopics: Topics.find({presented: {$ne: true}}, {sort: {points: -1}}),
       presentedTopics: Topics.find({presented: true}, {sort: {points: -1}})
     },
-    onBeforeAction: function() {
+    waitOn: function() {
       if (!this.params.tab) {
         this.params.tab = 'suggested';
       }
